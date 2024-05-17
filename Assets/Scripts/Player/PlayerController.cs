@@ -3,19 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerInputControl inputControl;
     private Rigidbody2D rb;
     public Vector2 inputDirection;
-    public float Speed;
+    [Header("基本参数")] public float speed;
+    public float jumpForce;
+    private PhysicsCheck physicsCheck;
 
     private void Awake()
     {
-        inputControl = new PlayerInputControl();
         rb = GetComponent<Rigidbody2D>();
+        // get the PhysicsCheck component
+        physicsCheck = GetComponent<PhysicsCheck>();
+        inputControl = new PlayerInputControl();
+        inputControl.Gameplay.Jump.performed += ctx => Jump();
     }
+
 
     private void OnEnable()
     {
@@ -39,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        rb.velocity = new Vector2(inputDirection.x * Speed * Time.deltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(inputDirection.x * speed * Time.deltaTime, rb.velocity.y);
         int faceDir = (int)transform.localScale.x;
         if (inputDirection.x > 0)
         {
@@ -49,7 +56,14 @@ public class PlayerController : MonoBehaviour
         {
             faceDir = -1;
         }
+
         // 人物反转 localScale x轴的位置,如果位置和人物的比例发生变化,则对应数值也需要对应调整
         transform.localScale = new Vector3(faceDir, 1, 1);
+    }
+
+    private void Jump()
+    {
+        if (physicsCheck.isGrounded)
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 }
