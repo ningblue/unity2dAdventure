@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public Vector2 inputDirection;
     [Header("基本参数")] public float speed;
+    private float runSpeed;
+    private float walkSpeed => speed / 2.5f;
     public float jumpForce;
     private PhysicsCheck physicsCheck;
 
@@ -21,6 +23,16 @@ public class PlayerController : MonoBehaviour
         physicsCheck = GetComponent<PhysicsCheck>();
         inputControl = new PlayerInputControl();
         inputControl.Gameplay.Jump.performed += ctx => Jump();
+
+        #region 强制走路
+
+        runSpeed = speed;
+        inputControl.Gameplay.WalkButton.performed += ctx => speed
+            = physicsCheck.isGrounded ? walkSpeed : runSpeed;
+        inputControl.Gameplay.WalkButton.canceled += ctx => speed
+            = physicsCheck.isGrounded ? runSpeed : walkSpeed;
+
+        #endregion
     }
 
 
