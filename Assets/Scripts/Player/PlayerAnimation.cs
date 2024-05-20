@@ -32,10 +32,16 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool("isGround", physicsCheck.isGrounded);
         anim.SetBool("isCrouch", _playerController.isCrouch);
         anim.SetBool("isDead", _playerController.isDead);
+        anim.SetBool("isAttack", _playerController.isAttack);
     }
 
     public void PlayHurt()
     {
         anim.SetTrigger("hurt");
+    }
+
+    public void PlayerAttack()
+    {
+        anim.SetTrigger("attack");
     }
 }

@@ -17,15 +17,15 @@ public class PlayerController : MonoBehaviour
     private float walkSpeed => speed / 2.5f;
     public float jumpForce;
     private PhysicsCheck physicsCheck;
-
-    public bool isCrouch;
+    private PlayerAnimation playerAnimation;
     private Vector2 originalOffset;
     private Vector2 originalSize;
 
+    [Header("状态")] public bool isCrouch;
     public bool isHurt;
     public float hurtForce;
     public bool isDead;
-
+    public bool isAttack;
 
     private void Awake()
     {
@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
         originalOffset = _coll.offset;
         originalSize = _coll.size;
         inputControl = new PlayerInputControl();
+        playerAnimation = GetComponent<PlayerAnimation>();
+
+        // 跳跃
         inputControl.Gameplay.Jump.performed += ctx => Jump();
 
         #region 强制走路
@@ -47,6 +50,18 @@ public class PlayerController : MonoBehaviour
             = physicsCheck.isGrounded ? runSpeed : walkSpeed;
 
         #endregion
+
+        #region 攻击
+
+        inputControl.Gameplay.Attack.started += PlayerAttack;
+
+        #endregion
+    }
+
+    private void PlayerAttack(InputAction.CallbackContext obj)
+    {
+        playerAnimation.PlayerAttack();
+        isAttack = true;
     }
 
 
@@ -110,6 +125,8 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
+    #region UnityEvent
+
     public void GetHurt(Transform attacker)
     {
         // 受伤
@@ -122,6 +139,8 @@ public class PlayerController : MonoBehaviour
     public void PlayerDead()
     {
         isDead = true;
-        inputControl.Gameplay.Disable();//禁用输入
+        inputControl.Gameplay.Disable(); //禁用输入
     }
+
+    #endregion
 }
