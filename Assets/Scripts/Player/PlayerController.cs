@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -20,6 +21,12 @@ public class PlayerController : MonoBehaviour
     public bool isCrouch;
     private Vector2 originalOffset;
     private Vector2 originalSize;
+
+    public bool isHurt;
+    public float hurtForce;
+    public bool isDead;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -60,7 +67,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (!isHurt)
+            Move();
     }
 
     public void Move()
@@ -79,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
         // 人物反转 localScale x轴的位置,如果位置和人物的比例发生变化,则对应数值也需要对应调整
         transform.localScale = new Vector3(faceDir, 1, 1);
-        
+
         // 下蹲
         isCrouch = inputDirection.y < -0.5f && physicsCheck.isGrounded;
         // 修改碰撞体的大小
@@ -88,7 +96,6 @@ public class PlayerController : MonoBehaviour
             // 人物下蹲时,碰撞体的大小
             _coll.offset = new Vector2(_coll.offset.x, 0.85f);
             _coll.size = new Vector2(_coll.size.x, 1.7f);
-            
         }
         else
         {
@@ -101,5 +108,20 @@ public class PlayerController : MonoBehaviour
     {
         if (physicsCheck.isGrounded)
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    public void GetHurt(Transform attacker)
+    {
+        // 受伤
+        isHurt = true;
+        rb.velocity = Vector2.zero;
+        Vector2 dir = new Vector2(transform.position.x - attacker.position.x, 0).normalized;
+        rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
+    }
+
+    public void PlayerDead()
+    {
+        isDead = true;
+        inputControl.Gameplay.Disable();//禁用输入
     }
 }

@@ -908,7 +908,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_38
+      name: char_blue_hurt_1_38
       rect:
         serializedVersion: 2
         x: 0
@@ -929,7 +929,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_39
+      name: char_blue_hurt_1_39
       rect:
         serializedVersion: 2
         x: 56
@@ -950,7 +950,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_40
+      name: char_blue_hurt_1_40
       rect:
         serializedVersion: 2
         x: 112
@@ -971,7 +971,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_41
+      name: char_blue_hurt_1_41
       rect:
         serializedVersion: 2
         x: 168
@@ -992,7 +992,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_42
+      name: char_blue_die_42
       rect:
         serializedVersion: 2
         x: 0
@@ -1013,7 +1013,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_43
+      name: char_blue_die_43
       rect:
         serializedVersion: 2
         x: 56
@@ -1034,7 +1034,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_44
+      name: char_blue_die_44
       rect:
         serializedVersion: 2
         x: 112
@@ -1055,7 +1055,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_45
+      name: char_blue_die_45
       rect:
         serializedVersion: 2
         x: 168
@@ -1076,7 +1076,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_46
+      name: char_blue_die_46
       rect:
         serializedVersion: 2
         x: 224
@@ -1097,7 +1097,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_47
+      name: char_blue_die_47
       rect:
         serializedVersion: 2
         x: 280
@@ -1118,7 +1118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_48
+      name: char_blue_die_48
       rect:
         serializedVersion: 2
         x: 336
@@ -1139,7 +1139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_49
+      name: char_blue_die_49
       rect:
         serializedVersion: 2
         x: 392
@@ -1160,7 +1160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_50
+      name: char_blue_die_50
       rect:
         serializedVersion: 2
         x: 0
@@ -1181,7 +1181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_51
+      name: char_blue_die_51
       rect:
         serializedVersion: 2
         x: 56
@@ -1202,7 +1202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_52
+      name: char_blue_die_52
       rect:
         serializedVersion: 2
         x: 112
@@ -1223,7 +1223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_53
+      name: char_blue_die_53
       rect:
         serializedVersion: 2
         x: 168
@@ -1564,24 +1564,8 @@ TextureImporter:
       char_blue_1_20: 121942383
       char_blue_1_21: 1194127594
       char_blue_1_3: 439951494
-      char_blue_1_38: 99117516
-      char_blue_1_39: -1347428279
       char_blue_1_4: -1425199262
-      char_blue_1_40: -1521467119
-      char_blue_1_41: 912815383
-      char_blue_1_42: 115862876
-      char_blue_1_43: 1879382337
-      char_blue_1_44: -1348829540
-      char_blue_1_45: 728151928
-      char_blue_1_46: 2021675510
-      char_blue_1_47: -788411195
-      char_blue_1_48: 1122518963
-      char_blue_1_49: 1765735901
       char_blue_1_5: -610923747
-      char_blue_1_50: 85442961
-      char_blue_1_51: 1507551946
-      char_blue_1_52: -1656318142
-      char_blue_1_53: -1960627615
       char_blue_1_54: -1691414050
       char_blue_1_55: -1953649581
       char_blue_1_56: 1378038902
@@ -1600,6 +1584,22 @@ TextureImporter:
       char_blue_1_7: 348141790
       char_blue_1_8: 1254112539
       char_blue_1_9: -896099957
+      char_blue_die_42: 912815383
+      char_blue_die_43: 115862876
+      char_blue_die_44: 1879382337
+      char_blue_die_45: -1348829540
+      char_blue_die_46: 728151928
+      char_blue_die_47: 2021675510
+      char_blue_die_48: -788411195
+      char_blue_die_49: 1122518963
+      char_blue_die_50: -610923747
+      char_blue_die_51: 85442961
+      char_blue_die_52: 1507551946
+      char_blue_die_53: -1656318142
+      char_blue_hurt_1_38: 157850916
+      char_blue_hurt_1_39: 99117516
+      char_blue_hurt_1_40: -1425199262
+      char_blue_hurt_1_41: -1521467119
       char_blue_jump_1_1_22: -1689958817
       char_blue_jump_1_1_23: 1722521756
       char_blue_jump_2_1_24: 1821708702

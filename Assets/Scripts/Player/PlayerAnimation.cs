@@ -9,6 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     private Rigidbody2D rb;
     private PhysicsCheck physicsCheck;
     private PlayerController _playerController;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -30,5 +31,11 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetFloat("velocityY", rb.velocity.y);
         anim.SetBool("isGround", physicsCheck.isGrounded);
         anim.SetBool("isCrouch", _playerController.isCrouch);
+        anim.SetBool("isDead", _playerController.isDead);
+    }
+
+    public void PlayHurt()
+    {
+        anim.SetTrigger("hurt");
     }
 }
